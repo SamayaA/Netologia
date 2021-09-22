@@ -1,0 +1,27 @@
+{
+    "genre" : ["Pop" , "Rock" , "Jazz" , "Country" , "Soul" , "Dance"] ,
+    "performer" : ["Alex" , "Jhon" , "Joe", "Amanda" , "Loren" , 
+        "One Republic" , "Emre" , "Coleen"] ,
+    "album" : { 
+        "title" : ["Back in Black" , "The Bodyguard" , "Bat Out of Hell" , 
+            "Their Greatest Hits (1971–1975)" , "Dirty Dancing" , "Millennium" , 
+            "Saturday Night Fever" , "Rumours"] ,
+        "release_date" : [2001 , 2008 , 2018 , 2020 , 2019 , 2007 ,
+            2018 , 2019 ]
+    },
+    "track" : {
+        "title" : ["Rolling In The Deep" , "Chasing Cars" , "I`m Gonna be" , 
+            "Wheels" , "Sail" , "Auto Pilot" , "On my Way" , "Under Your Spell" ,
+            "Tick Of The Clock" , "Headlights" , "Drive" , "Walk On By" , 
+            "Kicks" , "Kickstart My Heart" , "Fast Lane" ] ,
+        "duration" : [2.5 , 3.7 , 4.3 , 1.3 , 1.8 , 2.6 , 12.3 , 4.7, 2.4 , 5.7 , 
+        2.0 , 4.7 , 5.6 , 3.7 , 5.2 ]
+        },
+    "collection" : {
+        "name" : ["finnigan" , "chevy" , "mack" , "miranda" , 
+         "nasir" , "eva" , "reilly" , "ajay"] ,
+        "release_date" : [2001 , 2008 , 2018 , 2020 , 2019 , 2007 ,
+            2018 , 2019 ]
+    }
+            
+}
