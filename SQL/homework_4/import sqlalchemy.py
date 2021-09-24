@@ -1,7 +1,7 @@
 import sqlalchemy
 import psycopg2
 
-engine = sqlalchemy.create_engine('postgresql://...@localhost:5432/site')
+engine = sqlalchemy.create_engine('postgresql://user:password@localhost:5432/site')
 engine
 connection = engine.connect()
 connection.execute("""
@@ -35,22 +35,22 @@ VALUES ('Back in Black' , 2001 ),
 ('Rumours' , 2019 );""")
 
 connection.execute("""
-INSERT INTO track(title, duration) 
-VALUES ('Rolling In The Deep' , 2.5 ),
-('Chasing Cars' , 3.7 ),
-('I`m Gonna be' , 4.3 ),
-('Wheels' , 1.3 ),
-('Sail' , 1.8 ),
-('Auto Pilot' , 2.6 ),
-('On my Way' , 12.3 ),
-('Under Your Spell' , 4.7 ),
-('Tick Of The Clock' , 2.4 ),
-('Headlights' , 5.7 ),
-('Drive' , 2.0 ),
-('Walk On By' , 4.7 ),
-('Kicks' , 5.6 ),
-('Kickstart My Heart' , 3.7 ),
-('Fast Lane' , 5.2 );""")
+INSERT INTO track(title, duration, albumid) 
+VALUES ('Rolling In The Deep' , 2.5, 1),
+('Chasing Cars' , 3.7, 2),
+('I`m Gonna be' , 4.3, 3),
+('Wheels' , 1.3, 4),
+('Sail' , 1.8, 5),
+('Auto Pilot' , 2.6, 6),
+('On my Way' , 12.3, 7),
+('Under Your Spell' , 4.7, 8),
+('Tick Of The Clock' , 2.4, 1),
+('Headlights' , 5.7, 2),
+('Drive' , 2.0, 3),
+('Walk On By' , 4.7, 4),
+('Kicks' , 5.6, 5),
+('Kickstart My Heart' , 3.7, 6),
+('Fast Lane' , 5.2, 7 );""")
 
 connection.execute("""
 INSERT INTO collection(name, release_date) 
@@ -87,24 +87,6 @@ VALUES (2 , 1 ),
 (7 , 8 ),
 (8 , 5 ),
 (6 , 2 );""")
-
-connection.execute("""
-INSERT INTO track_to_album(trackid, albumid) 
-VALUES (1 , 1 ),
-(2 , 2 ),
-(3 , 3 ),
-(4 , 4 ),
-(5 , 5 ),
-(6 , 6 ),
-(7 , 7 ),
-(8 , 8 ),
-(9 , 1 ),
-(10 , 2 ),
-(11 , 3 ),
-(12 , 4 ),
-(13 , 5 ),
-(14 , 6 ),
-(15 , 7 );""")
 
 connection.execute("""
 INSERT INTO track_to_collection(trackid, collectionid) 

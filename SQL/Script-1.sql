@@ -26,13 +26,8 @@ constraint pk_AlbumPerformer primary key (albumId , performerId)
 CREATE TABLE Track (
 id serial primary key, 
 title varchar(80) not null , 
-duration numeric 
-);
-
-CREATE TABLE Track_to_Album (
-trackid integer references Track(id) ,
-albumid integer references Album(id) ,
-constraint pk_TrackAlbum primary key(trackid , albumid)
+duration numeric ,
+albumid integer references Album(id)
 );
 
 CREATE TABLE Collection (
@@ -62,5 +57,4 @@ constraint pk_TrackCollection primary key(trackid , collectionid)
 --select performer.id , performer.name , genre.title from performer, genre , genre_to_performer
 --where performer.id = genre_to_performer.performerid and genre.id = genre_to_performer.genreid ;
 
-
---drop table album , album_to_performer , genre , genre_to_performer ,performer , track , track_to_album , track_to_collection , �ollection ;
+--drop table album , album_to_performer , genre , genre_to_performer ,performer , track , track_to_album , track_to_collection , collection ;
