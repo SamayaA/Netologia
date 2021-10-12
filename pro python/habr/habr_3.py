@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+from pprint import pprint
 KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 satisfying_articles = []
 
@@ -10,12 +10,17 @@ response.raise_for_status()
 soup = BeautifulSoup(response.text, features='html.parser')
 articles = soup.find_all('article')
 for article in articles:
-    hub = article.find(class_='article-formatted-body article-formatted-body_version-2')
-    if hub==None:
-        continue
+    href = article.find(class_='tm-article-snippet__title-link').attrs['href']
+    link = 'https://habr.com' + href
+    response_article = requests.get(link)
+    response_article.raise_for_status()
+    soup_article = BeautifulSoup(response_article.text, features='html.parser')
+    hub = soup_article.find(id='post-content-body')
+    if hub == None:
+        continue  
     else:
-        hub = article.find(class_='article-formatted-body article-formatted-body_version-2').text
-
+        hub = soup_article.find(id='post-content-body').text
+    
     if any(keyword in hub for keyword in KEYWORDS):
         date = article.find('time').get('title')
         title = article.find('h2').text
