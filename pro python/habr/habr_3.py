@@ -1,14 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
-from pprint import pprint
+
 KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 satisfying_articles = []
 
 response = requests.get('https://habr.com/ru/all/')
 response.raise_for_status()
-
 soup = BeautifulSoup(response.text, features='html.parser')
 articles = soup.find_all('article')
+
 for article in articles:
     href = article.find(class_='tm-article-snippet__title-link').attrs['href']
     link = 'https://habr.com' + href
@@ -16,6 +16,7 @@ for article in articles:
     response_article.raise_for_status()
     soup_article = BeautifulSoup(response_article.text, features='html.parser')
     hub = soup_article.find(id='post-content-body')
+    
     if hub == None:
         continue  
     else:
