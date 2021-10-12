@@ -10,6 +10,7 @@ soup = BeautifulSoup(response.text, features='html.parser')
 articles = soup.find_all('article')
 
 for article in articles:
+    title = article.find('h2').text
     href = article.find(class_='tm-article-snippet__title-link').attrs['href']
     link = 'https://habr.com' + href
     response_article = requests.get(link)
@@ -22,11 +23,9 @@ for article in articles:
     else:
         hub = soup_article.find(id='post-content-body').text
     
-    if any(keyword in hub for keyword in KEYWORDS):
+    if any(keyword in hub  for keyword in KEYWORDS) or \
+        any(keyword in title for keyword in KEYWORDS):
         date = article.find('time').get('title')
-        title = article.find('h2').text
-        href = article.find(class_='tm-article-snippet__title-link').attrs['href']
-        link = 'https://habr.com' + href
         satisfying_articles.append(f"{date} - {title} - {link}")
 
 for article in satisfying_articles:
