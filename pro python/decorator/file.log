@@ -1,4 +1,10 @@
-2021-10-22 17:38:59.290927
+2021-10-22 20:38:14.310207                    
 function name = foo                    
 args = (0, 1, 2, 3, 4)	kwargs = {}
 return value = 10
+
+2021-10-22 20:38:14.312210                    
+function name = calculate_salary                    
+args = ()	kwargs = {}
+return value = None
+
