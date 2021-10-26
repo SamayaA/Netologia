@@ -21,8 +21,7 @@ if __name__ == '__main__':
 # task 1
 
 if __name__ == '__main__':
-    country_link_f = open("country_wiki.txt", "w+", encoding="utf-8")
-    for i in Wiki_countries() :
-        country_link_f.write(i)
-        country_link_f.write('\n')
-    country_link_f.close()
+    with open("country_wiki.txt", "w+", encoding="utf-8") as country_link_file:
+        for i in Wiki_countries("countries.json") :
+            country_link_file.write(i)
+            country_link_file.write('\n')
