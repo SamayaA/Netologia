@@ -1,6 +1,5 @@
 from typing import Any
 
-
 class stack:
     def __init__(self) -> None:
         self.st = list()
