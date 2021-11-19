@@ -1,13 +1,13 @@
-from stack import stack
+from stack import Stack
 
-def check_balance(brackets:str) -> bool:
+def check_balance(brackets: str) -> bool:
     '''The argument brackets is the string of brackets.
     For example, "[[{())}]".
     Output:
     If brackets balanced "{{[()]}}" - True
     otherwise "[[{())}]" - False
     '''
-    brackets_stack = stack()
+    brackets_stack = Stack()
     for i in range(len(brackets)):
         if brackets_stack.size() == 0:
             brackets_stack.push(brackets[i])
